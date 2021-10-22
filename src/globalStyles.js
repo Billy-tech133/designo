@@ -13,13 +13,17 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         overscroll-behavior: none;
         font-family: 'Jost', sans-serif;
+          transition: all 0.6s ease;
+
     }
 
     :root {
         /* ==== text ==== */
-        --white-tex: #fff;
+        --white-text: #fff;
         --black-text: #333136;
-        
+        /* ==== background === */
+        --black-bg: #1D1C1E;
+
     }
 `
 
