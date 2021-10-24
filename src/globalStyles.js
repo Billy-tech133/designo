@@ -9,11 +9,11 @@ const GlobalStyle = createGlobalStyle`
    width: 100vw;
 }
     body {
+        position: relative;
         margin: 0;
         padding: 0;
         overscroll-behavior: none;
         font-family: 'Jost', sans-serif;
- 
     }
     /* App Animations  */
     :root {

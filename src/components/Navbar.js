@@ -67,31 +67,45 @@ const AnchorLink = styled(Link)`
 
 // Nav Modal
 const ModalContainer = styled.div`
-  height: auto;
-  width: 100vw;
-  background: var(--white-text);
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
   color: var(--white-text);
-  transition: all 0.6s ease;
+  transition: all 0.3s linear;
+
   @media screen and (min-width: 760px) {
-    visibility: hidden;
+    opacity: 0;
   }
 `
 const ModalLinks = styled.ul`
-  background: var(--black-bg);
+  background-color: var(--black-bg) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
   padding: 30px 15px;
   margin: 0;
+  min-height: 250px;
 `
-const ModalLink = styled.div`
+const ModalLink = styled(Link)`
   margin-top: 12px;
-  letter-spacing: 2px;
-  font-weight: 10;
+  letter-spacing: 2.3;
+  font-weight: 300;
   font-size: 24px;
+  color: var(--white-text);
+  text-decoration: none;
+  text-transform: uppercase;
+  :hover {
+    cursor: pointer;
+    border-bottom: 1px solid var(--black-text);
+  }
 `
 
 const ModalShadow = styled.div`
-  height: 80vh;
+  height: 100vh;
   background: var(--black-bg);
-  opacity: 0.5;
+  opacity: 0.8;
 `
 
 const Navbar = () => {
