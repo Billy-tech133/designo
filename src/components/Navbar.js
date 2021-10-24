@@ -33,7 +33,7 @@ const Hamburger = styled.button`
   border: none;
   color: var(--black-text);
 
-  @media screen and (min-width: 760px) {
+  @media screen and (min-width: 785px) {
     display: none;
   }
 `
@@ -46,7 +46,7 @@ const CloseButton = styled(MdClear)`
 const NavLinks = styled.div`
   display: none;
 
-  @media screen and (min-width: 760px) {
+  @media screen and (min-width: 785px) {
     display: flex;
   }
 `
