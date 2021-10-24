@@ -12,7 +12,7 @@ import AppContext from "../context/AppContext"
 const NavContainer = styled.nav`
   height: 100%;
   width: 99vw;
-  @media screen and (min-width: 760px) {
+  @media screen and (min-width: 785px) {
     max-width: 80vw;
     margin: auto;
   }

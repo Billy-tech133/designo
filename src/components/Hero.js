@@ -40,8 +40,19 @@ const HeroContainer = styled.section`
   background-color: var(--hero-bg);
   background-image: url(${herobg});
   width: 100vw;
-  height: 843px;
-  background-size: cover;
+  height: 900px;
+  background-size: contain;
+  background-position: top right;
+  background-repeat: no-repeat;
+  @media screen and (min-width: 785px) {
+    max-width: 80vw;
+    margin: auto;
+    border-radius: 15px;
+    background-position: center left 80px;
+  }
+  @media screen and (min-width: 1440px) {
+    height: 700px;
+  }
 `
 
 const HeroContent = styled.div`
@@ -50,8 +61,11 @@ const HeroContent = styled.div`
   grid-template-rows: repeat(2, 1fr);
   place-items: center;
   color: var(--white-text);
-  width: 100vw;
   height: 100%;
+  @media screen and (min-width: 1440px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
 `
 
 // Hero Text
@@ -59,8 +73,16 @@ const HeroText = styled.div`
   text-align: center;
   font-size: 24px;
   font-weight: 200;
+  margin: 0 60px 60px 60px;
+  @media screen and (min-width: 1440px) {
+    text-align: left;
+  }
 `
-const HeroTitle = styled.h3``
+const HeroTitle = styled.h3`
+  font-size: 42px;
+  letter-spacing: 4px;
+  line-height: 1.2;
+`
 const HeroWriting = styled.p``
 const HeroBtn = styled.button``
 

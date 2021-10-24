@@ -42,8 +42,7 @@ const GlobalStyle = createGlobalStyle`
     }
     .btn:hover {
       background: var(---btn-hoverbg);
-      color: var(--white-text)
-    
+      color: var(--white-text);
 }
 `
 
