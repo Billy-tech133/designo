@@ -6,14 +6,52 @@ import logo from "../assets/shared/desktop/logo-dark.png"
 import { Link } from "gatsby"
 import AppContext from "../context/AppContext"
 
+const Navbar = () => {
+  return (
+    <AppContext.Consumer>
+      {({ closeModal, toggleModal }) => (
+        <>
+          <NavContainer>
+            <InnerContainer>
+              <Logo src={logo} alt="logo" />
+              <Hamburger onClick={toggleModal}>
+                {closeModal ? <HamButton /> : <CloseButton />}
+              </Hamburger>
+              <NavLinks>
+                <Links>
+                  <AnchorLink to="/"> Our Company</AnchorLink>
+                  <AnchorLink to="/"> Locations</AnchorLink>
+                  <AnchorLink to="/"> Contact</AnchorLink>
+                </Links>
+              </NavLinks>
+            </InnerContainer>
+          </NavContainer>
+          {closeModal ? null : (
+            <ModalContainer>
+              <ModalLinks>
+                <ModalLink to="/"> Our Company</ModalLink>
+                <ModalLink to="/"> Locations</ModalLink>
+                <ModalLink to="/"> Contact</ModalLink>
+              </ModalLinks>
+              <ModalShadow></ModalShadow>
+            </ModalContainer>
+          )}
+        </>
+      )}
+    </AppContext.Consumer>
+  )
+}
+
 //==== CSS ====
 
 // Navbar
 const NavContainer = styled.nav`
   height: 100%;
   width: 99vw;
+  transition: all 0.3s linear;
+
   @media screen and (min-width: 785px) {
-    max-width: 80vw;
+    max-width: 85vw;
     margin: auto;
   }
 `
@@ -68,13 +106,12 @@ const AnchorLink = styled(Link)`
 // Nav Modal
 const ModalContainer = styled.div`
   position: absolute;
-  z-index: 999;
+  z-index: 3;
   width: 100%;
   height: 100%;
   color: var(--white-text);
-  transition: all 0.3s linear;
 
-  @media screen and (min-width: 760px) {
+  @media screen and (min-width: 785px) {
     opacity: 0;
   }
 `
@@ -96,6 +133,8 @@ const ModalLink = styled(Link)`
   color: var(--white-text);
   text-decoration: none;
   text-transform: uppercase;
+  transition: all 0.3s linear;
+
   :hover {
     cursor: pointer;
     border-bottom: 1px solid var(--black-text);
@@ -107,41 +146,4 @@ const ModalShadow = styled.div`
   background: var(--black-bg);
   opacity: 0.8;
 `
-
-const Navbar = () => {
-  return (
-    <AppContext.Consumer>
-      {({ closeModal, toggleModal }) => (
-        <>
-          <NavContainer>
-            <InnerContainer>
-              <Logo src={logo} alt="logo" />
-              <Hamburger onClick={toggleModal}>
-                {closeModal ? <HamButton /> : <CloseButton />}
-              </Hamburger>
-              <NavLinks>
-                <Links>
-                  <AnchorLink to="/"> Our Company</AnchorLink>
-                  <AnchorLink to="/"> Locations</AnchorLink>
-                  <AnchorLink to="/"> Contact</AnchorLink>
-                </Links>
-              </NavLinks>
-            </InnerContainer>
-          </NavContainer>
-          {closeModal ? null : (
-            <ModalContainer>
-              <ModalLinks>
-                <ModalLink to="/"> Our Company</ModalLink>
-                <ModalLink to="/"> Locations</ModalLink>
-                <ModalLink to="/"> Contact</ModalLink>
-              </ModalLinks>
-              <ModalShadow></ModalShadow>
-            </ModalContainer>
-          )}
-        </>
-      )}
-    </AppContext.Consumer>
-  )
-}
-
 export default Navbar

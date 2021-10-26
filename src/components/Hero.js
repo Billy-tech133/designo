@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import herobg from "../assets/home/desktop/bg-pattern-hero-home.svg"
 
@@ -41,17 +40,19 @@ const HeroContainer = styled.section`
   background-image: url(${herobg});
   width: 100vw;
   height: 900px;
-  background-size: contain;
-  background-position: top right;
+  background-size: cover;
+  background-position: top 30% left;
   background-repeat: no-repeat;
+  overflow: hidden;
   @media screen and (min-width: 785px) {
-    max-width: 80vw;
+    max-width: 88vw;
     margin: auto;
     border-radius: 15px;
     background-position: center left 80px;
   }
   @media screen and (min-width: 1440px) {
     height: 700px;
+    background-position: right 35%;
   }
 `
 
@@ -79,12 +80,14 @@ const HeroText = styled.div`
   }
 `
 const HeroTitle = styled.h3`
-  font-size: 42px;
-  letter-spacing: 4px;
-  line-height: 1.2;
+  @media screen and (min-width: 760px) {
+    font-size: 42px;
+    letter-spacing: 4px;
+    line-height: 1.2;
+  }
 `
 const HeroWriting = styled.p``
-const HeroBtn = styled.button``
+const HeroBtn = styled(Link)``
 
 // Hero Image
 const HeroImage = styled.div``
