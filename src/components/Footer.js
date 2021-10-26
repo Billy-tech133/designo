@@ -67,10 +67,14 @@ const Footerwrapper = styled.section`
   height: 100%;
   width: 100vw;
   background: var(--footer-bg);
+  /* margin-top: -100px; */
+  z-index: -1;
 `
 
 const LinkFlex = styled.div`
-  display: flex;
+  @media screen and (min-width: 785px) {
+    display: flex;
+  }
 `
 const FooterUnderline = styled.div`
   width: 90vw;
@@ -144,11 +148,12 @@ const FooterInner = styled.div`
   align-items: center;
   color: var(--white-text);
   text-align: center;
-  padding: 50px 0;
+  padding: 150px 0 50px;
   @media screen and (min-width: 785px) {
     display: block;
     max-width: 88vw;
     margin: auto;
+    padding: 100px;
   }
 `
 
