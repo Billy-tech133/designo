@@ -21,7 +21,6 @@ const ContactHero = () => {
   )
 }
 const ContactWrapper = styled.section`
-  position: relative;
   height: 200px;
   width: 88vw;
   margin: 50px auto 50px;

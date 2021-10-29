@@ -1,41 +1,19 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import { FaAngleRight } from "react-icons/fa"
 
 import BackgroundImage from "gatsby-background-image"
-
-const Portfolio = () => {
-  const data = useStaticQuery(graphql`
-    {
-      allStrapiMain {
-        nodes {
-          cta
-          id
-          slug
-          title
-          webdesign {
-            localFile {
-              childImageSharp {
-                fluid(quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
+const Portcards = ({ nodes = [] }) => {
+  console.log(nodes)
   return (
-    <ParentBox>
-      {data.allStrapiMain.nodes.map(item => {
+    <CardBox>
+      {nodes.map(item => {
         const {
-          cta,
-          id,
-          slug,
           title,
+          id,
+          cta,
+          slug,
           webdesign: {
             localFile: {
               childImageSharp: { fluid },
@@ -44,7 +22,7 @@ const Portfolio = () => {
         } = item
         return (
           <SingleLink to={`/${slug}`}>
-            <Singlecard Tag="div" fluid={fluid} preserveStackContext>
+            <Singlecard key={id} fluid={fluid} Tag="div" preserveStackContext>
               <div className="card-bg">
                 <CtaHeader>{title}</CtaHeader>
                 <CtaLink to={`/${slug}`}>
@@ -56,19 +34,20 @@ const Portfolio = () => {
           </SingleLink>
         )
       })}
-    </ParentBox>
+    </CardBox>
   )
 }
-const ParentBox = styled.div`
+const CardBox = styled.div`
   display: grid;
   grid-gap: 15px;
-  grid-template-rows: repeat(3, 267px);
+  grid-template-rows: repeat(2, 267px);
   grid-template-columns: repeat(1, 100%);
   height: 100%;
-  border-radius: 15px;
+  width: 88vw;
+  margin: 60px auto 0;
   @media screen and (min-width: 1440px) {
     grid-template-columns: repeat(2, 2fr);
-    grid-template-rows: repeat(2, 267px);
+    grid-template-rows: repeat(1, 267px);
   }
 `
 const SingleLink = styled(Link)`
@@ -78,13 +57,10 @@ const Singlecard = styled(BackgroundImage)`
   height: 100%;
   width: 100%;
   overflow: overlay;
+  background-color: var(--black-text);
   border-radius: 15px;
-  @media screen and (min-width: 1440px) {
-    :first-child {
-      grid-row: 1 / 3;
-    }
-  }
 `
+
 const CtaHeader = styled.h3`
   text-transform: uppercase;
   letter-spacing: 2.3px;
@@ -102,4 +78,4 @@ const CtaArrow = styled(FaAngleRight)`
   margin-left: 12px;
   letter-spacing: 2px;
 `
-export default Portfolio
+export default Portcards

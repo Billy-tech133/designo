@@ -3,8 +3,8 @@ import styled from "styled-components"
 import Layout from "../components/Layout"
 import portHero from "../assets/app-design/desktop/bg-pattern-intro-app.svg"
 import ContactHero from "../components/ContactHero"
+import Portcards from "../components/Portcards"
 import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const portfolioTemplate = ({ data }) => {
   const {
@@ -13,8 +13,8 @@ const portfolioTemplate = ({ data }) => {
   } = data.strapiMain.content
 
   return (
-    <Layout>
-      <PortfolioWrap>
+    <PortfolioWrap>
+      <Layout>
         <Hero>
           <Heroinner>
             <HeroTitle>{title}</HeroTitle>
@@ -45,15 +45,50 @@ const portfolioTemplate = ({ data }) => {
               )
             })}
           </Cards>
+          <Portcards nodes={data.allStrapiMain.nodes} />
         </Body>
-      </PortfolioWrap>
-      <ContactHero />
-    </Layout>
+        <ContactHero />
+      </Layout>
+    </PortfolioWrap>
   )
 }
-
+export const query = graphql`
+  query getPortfolioCardAndGetPortfolioPage($slug: String) {
+    strapiMain(slug: { eq: $slug }) {
+      content {
+        hero {
+          desc
+          title
+        }
+        cards {
+          imageDesc
+          imageTitle
+          image
+        }
+      }
+    }
+    allStrapiMain(filter: { slug: { ne: $slug } }) {
+      nodes {
+        id
+        cta
+        slug
+        title
+        webdesign {
+          localFile {
+            childImageSharp {
+              fluid(quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 const PortfolioWrap = styled.main`
-  height: 100%;
+  overflow: hidden;
+  width: 100vw;
 `
 
 const Hero = styled.article`
@@ -97,6 +132,10 @@ const HeroTitle = styled.h3`
 `
 
 const Body = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   width: 100vw;
   height: 100%;
   padding: 20px 10px;
@@ -106,7 +145,7 @@ const Body = styled.section`
 const Cards = styled.div`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  /* grid-template-rows: repeat(6, 1fr); */
+
   grid-gap: 20px;
   place-items: center;
   width: 88vw;
@@ -151,22 +190,10 @@ const CardDesc = styled.div`
   text-align: center;
 `
 
-export const query = graphql`
-  query getPortfolioPage($slug: String) {
-    strapiMain(slug: { eq: $slug }) {
-      content {
-        hero {
-          desc
-          title
-        }
-        cards {
-          imageDesc
-          imageTitle
-          image
-        }
-      }
-    }
-  }
+const PortfolioCard = styled.section`
+  padding: 50% auto 50%;
+  height: 100%;
+  width: 100%;
 `
 
 export default portfolioTemplate

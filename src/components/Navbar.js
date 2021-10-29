@@ -107,8 +107,8 @@ const AnchorLink = styled(Link)`
 const ModalContainer = styled.div`
   position: absolute;
   z-index: 3;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   color: var(--white-text);
 
   @media screen and (min-width: 785px) {

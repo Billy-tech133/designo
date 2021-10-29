@@ -2,17 +2,14 @@ import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
 * ::before, ::after {
-    /* box-sizing: inherit; */
+    box-sizing: border-box;
     overscroll-behavior: none;
 }
-.html {
-   width: 100vw;
-}
+
     body {
-        min-width: 100vw;
-        margin: 0;
+        width: 100vw;
+        margin: auto;
         padding: 0;
-        overscroll-behavior: none;
         font-family: 'Jost', sans-serif;
     }
     /* App Animations  */
@@ -75,7 +72,9 @@ const GlobalStyle = createGlobalStyle`
           margin: 0;
       }
   }
-    
+.entire-width {
+    width: 100vw
+}
 .social-icon {
     font-size: 30px;
     margin-left: 15px;
