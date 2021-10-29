@@ -6,13 +6,14 @@ import { FaAngleRight } from "react-icons/fa"
 
 import BackgroundImage from "gatsby-background-image"
 
-const CtaSection = () => {
+const Portfolio = () => {
   const data = useStaticQuery(graphql`
     {
       allStrapiMain {
         nodes {
           cta
           id
+          slug
           title
           webdesign {
             localFile {
@@ -34,6 +35,7 @@ const CtaSection = () => {
         const {
           cta,
           id,
+          slug,
           title,
           webdesign: {
             localFile: {
@@ -42,15 +44,10 @@ const CtaSection = () => {
           },
         } = item
         return (
-          <Singlecard
-            Tag="div"
-            // style={{ borderRadius: `15px` }}
-            fluid={fluid}
-            preserveStackContext
-          >
+          <Singlecard Tag="div" fluid={fluid} preserveStackContext>
             <div className="card-bg">
               <CtaHeader>{title}</CtaHeader>
-              <CtaLink>
+              <CtaLink to={`/${slug}`}>
                 {cta}
                 <CtaArrow />
               </CtaLink>
@@ -94,10 +91,12 @@ const CtaLink = styled(Link)`
   display: flex;
   align-items: center;
   text-transform: uppercase;
+  text-decoration: none;
+  color: var(--white-text);
 `
 const CtaArrow = styled(FaAngleRight)`
   color: var(--hero-bg);
   margin-left: 12px;
   letter-spacing: 2px;
 `
-export default CtaSection
+export default Portfolio

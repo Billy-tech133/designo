@@ -1,12 +1,12 @@
 import React from "react"
 import styled from "styled-components"
-import CtaSection from "./CtaSection"
+import Portfolio from "./Portfolio"
 import AboutSection from "./AboutSection"
 import ContactHero from "./ContactHero"
 const Section = () => {
   return (
     <Main>
-      <CtaSection />
+      <Portfolio />
       <AboutSection />
       <ContactHero />
     </Main>
@@ -14,8 +14,6 @@ const Section = () => {
 }
 
 const Main = styled.main`
-  position: relative;
-
   height: 100%;
   width: 85vw;
   background: var(--white-text);

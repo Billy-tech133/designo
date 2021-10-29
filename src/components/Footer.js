@@ -67,8 +67,10 @@ const Footerwrapper = styled.section`
   height: 100%;
   width: 100vw;
   background: var(--footer-bg);
-  /* margin-top: -100px; */
-  z-index: -1;
+  margin: auto;
+  @media screen and (min-width: 785px) {
+    margin: auto;
+  }
 `
 
 const LinkFlex = styled.div`
@@ -152,7 +154,6 @@ const FooterInner = styled.div`
   @media screen and (min-width: 785px) {
     display: block;
     max-width: 88vw;
-    margin: auto;
     padding: 100px;
   }
 `

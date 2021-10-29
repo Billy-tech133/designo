@@ -27,8 +27,10 @@ const ContactWrapper = styled.section`
   margin: 50px auto 50px;
 `
 const ContactTextTitle = styled.div`
-  text-align: left;
-  max-width: 50%;
+  @media screen and (min-width: 785px) {
+    text-align: left;
+    max-width: 50%;
+  }
 `
 const Contact = styled.div`
   position: absolute;

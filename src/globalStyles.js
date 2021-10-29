@@ -2,14 +2,14 @@ import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
 * ::before, ::after {
-    box-sizing: inherit;
+    /* box-sizing: inherit; */
     overscroll-behavior: none;
 }
 .html {
    width: 100vw;
 }
     body {
-
+        min-width: 100vw;
         margin: 0;
         padding: 0;
         overscroll-behavior: none;
@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
         --hero-bg: #E7816B;
         --btn-hoverbg: #FFAD9B;
         --footer-bg: #1D1C1E;
+        --card-bg: #FDF3F0;
     }
     .hero-image {
         margin-top: 250px;
