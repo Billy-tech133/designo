@@ -21,7 +21,7 @@ const Navbar = () => {
                 <Links>
                   <AnchorLink to="/"> Our Company</AnchorLink>
                   <AnchorLink to="/"> Locations</AnchorLink>
-                  <AnchorLink to="/"> Contact</AnchorLink>
+                  <AnchorLink to="/contact"> Contact</AnchorLink>
                 </Links>
               </NavLinks>
             </InnerContainer>
@@ -99,7 +99,8 @@ const AnchorLink = styled(Link)`
   color: var(--black-text);
   :hover {
     cursor: pointer;
-    border-bottom: 1px solid var(--black-text);
+    text-decoration: underline;
+    /* border-bottom: 1px solid var(--black-text); */
   }
 `
 

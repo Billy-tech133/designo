@@ -89,6 +89,24 @@ const GlobalStyle = createGlobalStyle`
     }
 }
 
+.contact-input {
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    padding: 10px;
+    margin-top: 5px;
+    outline: none;
+    ::placeholder {
+        color: var(--white-text)
+    }
+    :hover {
+        border-bottom: 2px solid white;
+        font-weight: 300;
+        cursor: pointer;
+
+    }
+}
+
 `
 
 export default GlobalStyle

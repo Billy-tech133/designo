@@ -134,6 +134,9 @@ const FooterLinks = styled(Link)`
   color: var(--white-text);
   transition: all 0.3s linear;
   margin-top: 12px;
+  :hover {
+    text-decoration: underline;
+  }
   @media screen and (min-width: 785px) {
     margin-left: 24px;
   }

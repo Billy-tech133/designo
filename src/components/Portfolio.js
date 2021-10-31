@@ -43,17 +43,17 @@ const Portfolio = () => {
           },
         } = item
         return (
-          <SingleLink to={`/${slug}`}>
-            <Singlecard Tag="div" fluid={fluid} preserveStackContext>
-              <div className="card-bg">
-                <CtaHeader>{title}</CtaHeader>
-                <CtaLink to={`/${slug}`}>
-                  {cta}
-                  <CtaArrow />
-                </CtaLink>
-              </div>
-            </Singlecard>
-          </SingleLink>
+          // <SingleLink key={id} to={`/${slug}`}>
+          <Singlecard Tag="div" fluid={fluid} preserveStackContext>
+            <div className="card-bg">
+              <CtaHeader>{title}</CtaHeader>
+              <CtaLink to={`/${slug}`}>
+                {cta}
+                <CtaArrow />
+              </CtaLink>
+            </div>
+          </Singlecard>
+          // </SingleLink>
         )
       })}
     </ParentBox>
