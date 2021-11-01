@@ -5,9 +5,30 @@ import contactBg from "../assets/contact/mobile/bg-pattern-hero-contact-mobile.s
 import { graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import BackgroundImage from "gatsby-background-image"
+import { useForm } from "react-hook-form"
+
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
+
+const schema = yup.object().shape({
+  name: yup.string().required(),
+  email: yup.string().email().required(),
+  tel: yup.number().integer(),
+  message: yup.string().required(),
+})
 
 const Contact = ({ data }) => {
-  console.log(data)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
+  const submitForm = data => {
+    console.log({ data })
+  }
+
   return (
     <Layout>
       <ContactWrapper>
@@ -22,32 +43,49 @@ const Contact = ({ data }) => {
                 relatable to your users, drop us a line.
               </HeroDesc>
             </HeroText>
-            <HeroForm>
+            <HeroForm
+              action="https://formspree.io/f/mknklope"
+              method="POST"
+              onSubmit={handleSubmit(submitForm)}
+            >
               <FormName
                 type="text"
                 name="name"
                 placeholder="Name"
                 className="contact-input"
+                {...register("name")}
               />
+              <p>{errors.name?.message}</p>
               <FormEmail
                 type="email"
                 name="email"
                 placeholder="Email Address"
                 className="contact-input"
+                {...register("email")}
               />
+              <p>{errors.email?.message}</p>
+
               <FormTel
                 type="tel"
                 name="tel"
                 placeholder="Phone"
                 className="contact-input"
+                {...register("tel")}
               />
+              <p>{errors.tel?.message}</p>
+
               <FormMessage
                 name="message"
                 placeholder="Your Message"
                 rows="8"
                 className="contact-input"
+                {...register("message")}
               />
-              <FormButton className="btn" type="button" value="submit" />
+              <p>{errors.message?.message}</p>
+
+              <FormButton className="btn" type="submit">
+                Submit
+              </FormButton>
             </HeroForm>
           </HeroInner>
         </HeroWrapper>
@@ -163,7 +201,7 @@ const FormName = styled.input``
 const FormEmail = styled.input``
 const FormTel = styled.input``
 const FormMessage = styled.textarea``
-const FormButton = styled.input`
+const FormButton = styled.button`
   margin: 20px auto 0;
   width: 140px;
   @media screen and (min-width: 785px) {

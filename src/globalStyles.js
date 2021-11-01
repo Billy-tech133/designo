@@ -96,8 +96,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 10px;
     margin-top: 5px;
     outline: none;
+    color: var(--white-text);
+    font-size: 24px;
     ::placeholder {
-        color: var(--white-text)
+        color: var(--white-text);
     }
     :hover {
         border-bottom: 2px solid white;

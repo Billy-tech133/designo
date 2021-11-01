@@ -15,6 +15,8 @@
   },
   "dependencies": {
     "@fontsource/jost": "^4.5.0",
+    "@formspree/react": "^2.2.4",
+    "@hookform/resolvers": "^2.8.2",
     "babel-plugin-styled-components": "^1.13.3",
     "gatsby": "^4.0.0-zz-next.1",
     "gatsby-background-image": "^1.5.3",
@@ -30,8 +32,10 @@
     "intersection-observer": "^0.12.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-hook-form": "^7.18.0",
     "react-icons": "^4.3.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "prettier": "2.3.2"
