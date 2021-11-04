@@ -31,6 +31,13 @@ const GlobalStyle = createGlobalStyle`
     .CtaSection__Singlecard-kgMgAi {
         border-radius: 15px;
     }
+    .h3 {
+          font-weight: 200;
+          color: var(--white-text);
+        font-size: 42px;
+        letter-spacing: 4px;
+        line-height: 1.2;
+    }
     .btn {
         border: none;
         padding: 15px;
@@ -97,7 +104,7 @@ const GlobalStyle = createGlobalStyle`
     margin-top: 5px;
     outline: none;
     color: var(--white-text);
-    font-size: 24px;
+    
     ::placeholder {
         color: var(--white-text);
     }
@@ -107,6 +114,10 @@ const GlobalStyle = createGlobalStyle`
         cursor: pointer;
 
     }
+}
+.about-image {
+    width: 100%;
+    height: 50%;
 }
 
 `

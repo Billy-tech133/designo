@@ -17,7 +17,9 @@ const Hero = () => {
             fully responsive websites, app design, and engaging brand
             experiences. Find out more about our services.
           </HeroWriting>
-          <HeroBtn className="btn">Learn more</HeroBtn>
+          <HeroBtn to="/about" className="btn">
+            Learn more
+          </HeroBtn>
         </HeroText>
 
         <StaticImage
@@ -87,7 +89,9 @@ const HeroTitle = styled.h3`
   }
 `
 const HeroWriting = styled.p``
-const HeroBtn = styled(Link)``
+const HeroBtn = styled(Link)`
+  text-decoration: none;
+`
 
 // Hero Image
 const HeroImage = styled.div``

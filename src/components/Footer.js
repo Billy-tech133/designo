@@ -12,14 +12,16 @@ const Footer = () => {
     <Footerwrapper>
       <FooterInner>
         <FooterNav>
-          <StaticImage
-            src="../assets/shared/desktop/logo-light.png"
-            alt="logo"
-            placeholder="blurred"
-            layout="fixed"
-            width={200}
-            className="footer-logo"
-          />
+          <Link to="/">
+            <StaticImage
+              src="../assets/shared/desktop/logo-light.png"
+              alt="logo"
+              placeholder="blurred"
+              layout="fixed"
+              width={200}
+              className="footer-logo"
+            />
+          </Link>
           <FooterUnderline />
           <LinkFlex>
             {navLinks.map(link => {

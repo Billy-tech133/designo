@@ -2,12 +2,12 @@ const data = [
   {
     id: 1,
     text: "our company",
-    url: "/company",
+    url: "/about/",
   },
   {
     id: 2,
     text: "locations",
-    url: "/locations",
+    url: "/location/",
   },
   {
     id: 3,

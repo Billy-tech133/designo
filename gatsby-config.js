@@ -19,8 +19,8 @@ module.exports = {
       options: {
         apiURL: `http://localhost:1337`,
         queryLimit: 1000, // Defaults to 100
-        collectionTypes: [`Main`, `About`, `Contact`],
-        // singleTypes: [`home-page`, `contact`],
+        collectionTypes: [`Main`, `About`, `Contact`, `First-about`, `Map`],
+        singleTypes: [`about-us`],
       },
     },
     `gatsby-plugin-styled-components`,

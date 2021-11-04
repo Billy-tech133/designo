@@ -14,7 +14,9 @@ const ContactHero = () => {
               how our expertise can help your business grow.
             </ContactText>
           </ContactTextTitle>
-          <ContactButton className="btn">get in touch</ContactButton>
+          <ContactButton to="/contact" className="btn">
+            get in touch
+          </ContactButton>
         </ContactInner>
       </Contact>
     </ContactWrapper>
@@ -62,5 +64,7 @@ const ContactTitle = styled.h3`
   font-size: 28px;
 `
 const ContactText = styled.p``
-const ContactButton = styled(Link)``
+const ContactButton = styled(Link)`
+  text-decoration: none;
+`
 export default ContactHero

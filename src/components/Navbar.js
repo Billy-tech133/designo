@@ -13,14 +13,16 @@ const Navbar = () => {
         <>
           <NavContainer>
             <InnerContainer>
-              <Logo src={logo} alt="logo" />
+              <Link to="/">
+                <Logo src={logo} alt="logo" />
+              </Link>
               <Hamburger onClick={toggleModal}>
                 {closeModal ? <HamButton /> : <CloseButton />}
               </Hamburger>
               <NavLinks>
                 <Links>
-                  <AnchorLink to="/"> Our Company</AnchorLink>
-                  <AnchorLink to="/"> Locations</AnchorLink>
+                  <AnchorLink to="/about"> Our Company</AnchorLink>
+                  <AnchorLink to="/location"> Locations</AnchorLink>
                   <AnchorLink to="/contact"> Contact</AnchorLink>
                 </Links>
               </NavLinks>
@@ -29,9 +31,9 @@ const Navbar = () => {
           {closeModal ? null : (
             <ModalContainer>
               <ModalLinks>
-                <ModalLink to="/"> Our Company</ModalLink>
-                <ModalLink to="/"> Locations</ModalLink>
-                <ModalLink to="/"> Contact</ModalLink>
+                <ModalLink to="/about"> Our Company</ModalLink>
+                <ModalLink to="/location"> Locations</ModalLink>
+                <ModalLink to="/contact"> Contact</ModalLink>
               </ModalLinks>
               <ModalShadow></ModalShadow>
             </ModalContainer>
@@ -106,12 +108,11 @@ const AnchorLink = styled(Link)`
 
 // Nav Modal
 const ModalContainer = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 3;
   width: 100vw;
   height: 100vh;
   color: var(--white-text);
-
   @media screen and (min-width: 785px) {
     opacity: 0;
   }
