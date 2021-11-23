@@ -22,9 +22,5 @@ const Main = styled.main`
     width: 88vw;
   }
 `
-const Ctasection = styled.section``
 
-const Aboutsection = styled.section``
-
-const ContactSection = styled.article``
 export default Section

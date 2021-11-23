@@ -159,11 +159,6 @@ const ArticleOneText = styled.div`
   height: 100%;
 `
 
-const SectionTwo = styled.section`
-  height: 100%;
-  width: 100vw;
-`
-
 const ArticleTwo = styled.article`
   display: grid;
   height: 100%;

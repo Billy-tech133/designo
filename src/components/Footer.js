@@ -1,5 +1,4 @@
 import React from "react"
-import logo from "../assets/shared/desktop/logo-light.png"
 import { StaticImage } from "gatsby-plugin-image"
 import navLinks from "../contacts/links"
 import socailLinks from "../contacts/socialLinks"

@@ -93,6 +93,4 @@ const HeroBtn = styled(Link)`
   text-decoration: none;
 `
 
-// Hero Image
-const HeroImage = styled.div``
 export default Hero

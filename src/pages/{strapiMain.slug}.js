@@ -5,41 +5,43 @@ import portHero from "../assets/app-design/desktop/bg-pattern-intro-app.svg"
 import ContactHero from "../components/ContactHero"
 import Portcards from "../components/Portcards"
 import { graphql } from "gatsby"
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 const portfolioTemplate = ({ data }) => {
-  const {
-    hero: { desc, title },
-    cards,
-  } = data.strapiMain.content
-
+  console.log(data)
+  const { heroDesc, heroTitle } = data.strapiMain.head
+  const cards = data.strapiMain.main
   return (
     <PortfolioWrap>
       <Layout>
         <Hero>
           <Heroinner>
-            <HeroTitle>{title}</HeroTitle>
-            <HeroText>{desc}</HeroText>
+            <HeroTitle>{heroTitle}</HeroTitle>
+            <HeroText>{heroDesc}</HeroText>
           </Heroinner>
         </Hero>
         <Body>
           <Cards>
             {cards.map((card, index) => {
-              const { image, imageDesc, imageTitle } = card
+              const {
+                cardImage: { localFile },
+                cardDesc,
+                cardTitle,
+              } = card
+              const Image = getImage(localFile)
               return (
                 <Card key={index}>
-                  <CardImg src={image} alt={imageTitle}>
-                    {/* <GatsbyImage
-                      image={image}
+                  <CardImg>
+                    <GatsbyImage
+                      image={Image}
+                      className="card-img"
                       placeholder="blurred"
                       layout="fixed"
-                      // height={}
-                      // width={}
-                      alt={imageTitle}
-                    /> */}
+                      alt={cardTitle}
+                    />
                   </CardImg>
                   <CardDesc>
-                    <CardTitle>{imageTitle}</CardTitle>
-                    <CardText>{imageDesc}</CardText>
+                    <CardTitle>{cardTitle}</CardTitle>
+                    <CardText>{cardDesc}</CardText>
                   </CardDesc>
                 </Card>
               )
@@ -52,18 +54,23 @@ const portfolioTemplate = ({ data }) => {
     </PortfolioWrap>
   )
 }
+
 export const query = graphql`
-  query getPortfolioCardAndGetPortfolioPage($slug: String) {
+  query getPortfolioPageAndGetPortfolioPage($slug: String) {
     strapiMain(slug: { eq: $slug }) {
-      content {
-        hero {
-          desc
-          title
-        }
-        cards {
-          imageDesc
-          imageTitle
-          image
+      head {
+        heroDesc
+        heroTitle
+      }
+      main {
+        cardTitle
+        cardDesc
+        cardImage {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
+            }
+          }
         }
       }
     }
@@ -169,7 +176,7 @@ const Card = styled.article`
   border-radius: 15px;
 `
 
-const CardImg = styled.img`
+const CardImg = styled.div`
   object-fit: cover;
   width: 80vw;
   height: 70%;
@@ -188,12 +195,6 @@ const CardText = styled.p`
 
 const CardDesc = styled.div`
   text-align: center;
-`
-
-const PortfolioCard = styled.section`
-  padding: 50% auto 50%;
-  height: 100%;
-  width: 100%;
 `
 
 export default portfolioTemplate

@@ -33,7 +33,7 @@ const Portfolio = () => {
       {data.allStrapiMain.nodes.map(item => {
         const {
           cta,
-          id,
+
           slug,
           title,
           webdesign: {
@@ -43,7 +43,6 @@ const Portfolio = () => {
           },
         } = item
         return (
-          // <SingleLink key={id} to={`/${slug}`}>
           <Singlecard Tag="div" fluid={fluid} preserveStackContext>
             <div className="card-bg">
               <CtaHeader>{title}</CtaHeader>
@@ -53,7 +52,6 @@ const Portfolio = () => {
               </CtaLink>
             </div>
           </Singlecard>
-          // </SingleLink>
         )
       })}
     </ParentBox>
@@ -71,9 +69,7 @@ const ParentBox = styled.div`
     grid-template-rows: repeat(2, 267px);
   }
 `
-const SingleLink = styled(Link)`
-  text-decoration: none;
-`
+
 const Singlecard = styled(BackgroundImage)`
   height: 100%;
   width: 100%;

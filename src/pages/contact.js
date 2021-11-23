@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import styled from "styled-components"
 import contactBg from "../assets/contact/mobile/bg-pattern-hero-contact-mobile.svg"
-import { graphql, Link } from "gatsby"
+
 import { useForm } from "react-hook-form"
 import Locations from "../components/Locations"
 import { yupResolver } from "@hookform/resolvers/yup"

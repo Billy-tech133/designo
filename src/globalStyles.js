@@ -5,7 +5,10 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     overscroll-behavior: none;
 }
-
+ html, body {
+     min-width: 100%;
+     overflow-x: hidden;
+ }
     body {
         width: 100vw;
         margin: auto;
@@ -119,7 +122,12 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 50%;
 }
-
+.card-img {
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
 `
 
 export default GlobalStyle

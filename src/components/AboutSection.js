@@ -2,7 +2,6 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { convertToBgImage } from "gbimage-bridge"
 import BackgroundImage from "gatsby-background-image"
 
 const AboutSection = () => {
